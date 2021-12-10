@@ -1,8 +1,9 @@
-def ficha(nome='<desconhecido>', gols=0):
-    print(f'O jogador {nome} fez {gols} gol(s) no campeonato.')
-
-
 def cadentrar(documento=''):
+    """
+
+    :param documento: Documento onde conterá as insformações de login
+    :return: Retorna o nome e a senha
+    """
     #Programa Principal
     print('-' * 40)
     print(f'{"ENTRAR":^40}')

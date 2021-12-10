@@ -19,8 +19,8 @@ def lerarquivo(nome):
 def leiaint(msg):
     """
 
-    :param msg:Texto
-    :return:Retorna o valor inteiro
+    :param msg: Texto a ser mostrado no input
+    :return:Retorna o valor int(inteiro)
     """
     while True:
         try:
@@ -38,7 +38,7 @@ def leiaint(msg):
 def leianumbin(numbin):
     """
 
-    :param numbin: Texto
+    :param numbin: Texto a ser mostrado no input
     :return: Retorna o valor binário
     """
     cont = 0
@@ -56,7 +56,7 @@ def leianumbin(numbin):
 def leiadinheiro(num):
     """
 
-    :param num: Texto
+    :param num: Texto a ser mostrado no input
     :return: Retorna o valor na forma monetária
     """
     ndef = str(input(num)).strip()
@@ -72,7 +72,7 @@ def leiadinheiro(num):
 def leiafloat(msg):
     """
 
-    :param msg: Texto
+    :param msg: Texto a ser mostrado no input
     :return: Retorna um valor real
     """
     while True:
@@ -91,7 +91,7 @@ def leiafloat(msg):
 def leiaresposta(txt='', numresp=1):
     """
 
-    :param txt: Texto
+    :param txt: Texto a ser mostrado no input
     :param numresp: Número possivel de respostas
     :return: Retorna a resposta
     """
@@ -110,7 +110,7 @@ def leiaresposta(txt='', numresp=1):
 def leiarespostaSN(txt='', minmai='mai'):
     """
 
-    :param txt: Texto
+    :param txt: Texto a ser mostrado no input
     :param minmai: Se a resposta será retornada como maiúscula ou minúscula
     :return: Retorna um valor S (SIM) ou N (NÃO)
     """

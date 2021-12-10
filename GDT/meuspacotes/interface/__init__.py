@@ -4,8 +4,8 @@ import meuspacotes
 def linha(var=0):
     """
 
-    :param var: Tamanho da linha ou variavel
-    :return: Retorna a linha
+    :param var: Tamanho da linha ou variavel, na qual será contabilizada a aquntia de caracteres dessa variavel e montada a linha
+    :return: Retorna a linha ou melhor escreve uma linha
     """
     var = str(var)
     if var.isnumeric():
@@ -35,8 +35,8 @@ def menu(lista, cor1='\033[m', cor2='\033[m', titulo='Menu', retorna='int'):
     :param cor1: Primeira cor do menu
     :param cor2: Segunda Cor do menu
     :param titulo: Título do menu
-    :return: Se o parâmetro retorna for int(inteiro) ele retorna o número da opção escolhida | Se o parâmetro
-    for str(string) ele retorna os caracteres da opção.
+    :return: Se o parâmetro retorna ser int(inteiro) ele retorna o número da opção escolhida | Se o parâmetro
+    ser str(string) ele retorna os caracteres da opção | se o parâmetro ser stint ele retornará tanto o número da opção tanto os caracteres
 
     Por exemplo
 
@@ -46,7 +46,7 @@ def menu(lista, cor1='\033[m', cor2='\033[m', titulo='Menu', retorna='int'):
 
     Escolhendo int, ele reotornaria os valores 1,2,3.
     Escolhendo str, ele reotornaria os caracteres Opção 1, Opção 2, Opção 3.
-    Escolhendo stint, ele reornaria tanto 1,2,3 tanto opção 1, opção 2, opção 3 os dois tipos divididos
+    Escolhendo stint, ele reornaria tanto 1,2,3 tanto opção 1, opção 2, opção 3 os dois tipos
     em uma lista.
     """
     print('-' * 40)

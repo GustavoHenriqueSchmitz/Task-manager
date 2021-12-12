@@ -1,2 +1,2 @@
-# GDT 0.12
+# GDT 1.0
  Gerenciador de Tarefas

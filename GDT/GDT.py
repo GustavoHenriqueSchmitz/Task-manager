@@ -11,7 +11,7 @@ from meuspacotes import DataHora
 #Ínicio Do programa
 while True:
     #Opções 1 -> Decidir o tipo de tarefa
-    r1 = interface.menu(['Tarefas Diárias', 'Tarefas Temporarias', 'Sair do Programa'], f'{cores.magenta()}', f'{cores.azul()}', f'{"GERENCIADOR DE TAREFAS":^40}'f'\n{"MENU":^40}', 'stint')
+    r1 = interface.menu(['Tarefas Diárias', 'Tarefas Temporárias', 'Sair do Programa'], f'{cores.magenta()}', f'{cores.azul()}', f'{"GERENCIADOR DE TAREFAS":^40}'f'\n{"MENU":^40}', 'stint')
     if r1[0] == 1:
         while True:
             #Opção2 -> tipo de tarefa
@@ -70,7 +70,6 @@ while True:
                         elif r3[0] == 4:
                             break
     elif r1[0] == 2:
-        print(f'{cores.vermelhoclaro()}AVISO! Está parte do programa está em beta e pode conter erros.{cores.retirarcor()}')
         while True:
             # Opção2 -> tipo de tarefa
             r2 = interface.menu(['Tarefas Pessoais', 'Tarefas de Escola', 'Tarefas de Casa', 'Voltar ao Menu'],f'{cores.magenta()}', f'{cores.azul()}', f'TAREFAS {r1[1].upper().strip()}', 'stint')
@@ -114,7 +113,7 @@ while True:
                                 break
                             if int(v1) > int(v2):
                                 for contlinhasmai, tarmai in enumerate(tars):
-                                    print(f'{cores.vermelhoclaro()}{tarmai}{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}{tarmai}{cores.retirarcor()}')
                                     break
                                 break
                             else:
@@ -146,8 +145,7 @@ while True:
                                         contlist += 1
                                         v2 = ''
                                         continue
-                                datai = DataHora.RetornaData(vdlist[0], vdlist[1], vdlist[2], vdlist[3], vdlist[4],
-                                                             vdlist[5]).retorna_data_hora_sep()
+                                datai = DataHora.RetornaData(vdlist[0], vdlist[1], vdlist[2], vdlist[3], vdlist[4],vdlist[5]).retorna_data_hora_sep()
                                 # Começa a verificar se as tarefas já passaram da data limite ou não, escrevendo em vermelho as que já passaram
                                 for v1, v2 in zip(dataatu.values(), datai.values()):
                                     if int(v1) < int(v2):
@@ -157,7 +155,7 @@ while True:
                                         break
                                     if int(v1) > int(v2):
                                         for contlinhasmai, tarmai in enumerate(tars):
-                                            print(f'{cores.vermelhoclaro()}{tarmai}{cores.retirarcor()}')
+                                            print(f'{cores.vermelho()}{tarmai}{cores.retirarcor()}')
                                             break
                                         break
                                     else:
@@ -185,7 +183,6 @@ while True:
                                     with open(f'Tarefas/{r1[1]}/Datas/{r2[1]}/{r2b[1]}', 'w+') as arq:
                                         for c, linha in enumerate(linhasarqdata):
                                             arq.write(f'{linha}')
-
                                     for vlat in linhasarqtemp:
                                         vl = ''
                                         for nl, l in enumerate(vlat):
@@ -203,7 +200,7 @@ while True:
                             for linha in arqtarefas:
                                 contfor += 1
                             tarefa = str(input(f'{cores.magentaclaro()}Digite a tarefa a ser adicionada: {cores.retirarcor()}'))
-                            print('<> Defina a data de término dessa tarefa <>')
+                            print(f'{cores.magentaclaro()}<>{cores.azul()} Defina a data de término dessa tarefa {cores.magentaclaro()}<>{cores.retirarcor()}')
                             #Esta parte é responsável por definir a data limite das tarefas.
                             #Define e verifica o ano da data limite
                             while True:
@@ -211,12 +208,12 @@ while True:
                                     try:
                                         anofimtar = int(input(f'{cores.magentaclaro()}Ano: {cores.retirarcor()}'))
                                     except:
-                                        print(f'{cores.vermelhoclaro()} O valor ano digitado, é ínvalido {cores.retirarcor()}')
+                                        print(f'{cores.vermelho()} O ano digitado, é ínvalido {cores.retirarcor()}')
                                         continue
                                     else:
                                         break
                                 if anofimtar < int(DataHora.RetornaData().retorna_tipo_especifico(1)):
-                                    print(f'{cores.vermelhoclaro()}O ano de {anofimtar} já passou, digite um ano superior ou atual.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}O ano de {anofimtar} já passou, digite um ano superior ou atual.{cores.retirarcor()}')
                                     continue
                                 else:
                                     break
@@ -224,18 +221,18 @@ while True:
                             while True:
                                 while True:
                                     try:
-                                        mesfimtar = int(input(f'{cores.magentaclaro()}Mês: {cores.retirarcor()}'))
+                                        mesfimtar = int(input(f'{cores.magentaclaro()}Mês[1/12]: {cores.retirarcor()}'))
                                     except:
-                                        print(f'{cores.vermelhoclaro()}O Mês digitado, é ínvalido{cores.retirarcor()}')
+                                        print(f'{cores.vermelho()}O mês digitado, é ínvalido{cores.retirarcor()}')
                                         continue
                                     else:
                                         break
                                 if mesfimtar < 1 or mesfimtar > 12:
-                                    print(f'{cores.vermelhoclaro()}O mês digitado não existe.{cores.retirarcor()}')
-                                    print(f'{cores.vermelhoclaro()}Para o mês {mesfimtar} digite um mês de 1 a 12{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}O mês digitado não existe.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}Digite um mês valido de 1 a 12{cores.retirarcor()}')
                                     continue
                                 elif mesfimtar < int(DataHora.RetornaData().retorna_tipo_especifico(2)) and anofimtar == int(DataHora.RetornaData().retorna_tipo_especifico(1)):
-                                    print(f'{cores.vermelhoclaro()}O mês {mesfimtar} já passou, digite um mês superior ou atual{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}O mês {mesfimtar} já passou, digite um mês superior ou atual{cores.retirarcor()}')
                                     continue
                                 else:
                                     break
@@ -245,34 +242,34 @@ while True:
                                     try:
                                         diafimtar = int(input(f'{cores.magentaclaro()}Dia: {cores.retirarcor()}'))
                                     except:
-                                        print(f'{cores.vermelhoclaro()}O dia digitado, é ínvalido{cores.retirarcor()}')
+                                        print(f'{cores.vermelho()}O dia digitado, é ínvalido{cores.retirarcor()}')
                                         continue
                                     else:
                                         break
                                 if diafimtar < 1 or diafimtar > int(DataHora.RetornaData.retorna_dias_mes(anofimtar, mesfimtar)):
-                                    print(f'{cores.vermelhoclaro()}O dia digitado não existe.{cores.retirarcor()}')
-                                    print(f'{cores.vermelhoclaro()} Para o dia {diafimtar} digite um dia de 1 a {DataHora.RetornaData.retorna_dias_mes(anofimtar, mesfimtar)}{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}O dia digitado não existe.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}Digite um dia valido de 1 a {DataHora.RetornaData.retorna_dias_mes(anofimtar, mesfimtar)}{cores.retirarcor()}')
                                     continue
                                 elif diafimtar < int(DataHora.RetornaData().retorna_tipo_especifico(3)) and mesfimtar == int(DataHora.RetornaData().retorna_tipo_especifico(2)):
-                                    print(f'{cores.vermelhoclaro()}O dia {diafimtar} já passou, digite um dia superior ou atual.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}O dia {diafimtar} já passou, digite um dia superior ou atual.{cores.retirarcor()}')
                                 else:
                                     break
                             #Define e Verifica a hora da datalimite
                             while True:
                                 while True:
                                     try:
-                                        horafimtar = int(input(f'{cores.magentaclaro()}Hora: {cores.retirarcor()}'))
+                                        horafimtar = int(input(f'{cores.magentaclaro()}Hora[0/23]: {cores.retirarcor()}'))
                                     except:
-                                        print(f'{cores.vermelhoclaro()}A hora digitada, é ínvalida.{cores.retirarcor()}')
+                                        print(f'{cores.vermelho()}A hora digitada, é ínvalida.{cores.retirarcor()}')
                                         continue
                                     else:
                                         break
                                 if horafimtar < 0 or horafimtar > 23:
-                                    print(f'{cores.vermelhoclaro()}A hora digitada não existe.{cores.retirarcor()}')
-                                    print(f'{cores.vermelhoclaro()} Para a hora {horafimtar} digite uma hora de 0 a 23.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}A hora digitada não existe.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}Digite uma hora valida de 0 a 23.{cores.retirarcor()}')
                                     continue
                                 elif horafimtar < int(DataHora.RetornaData().retorna_tipo_especifico(4)) and diafimtar == int(DataHora.RetornaData().retorna_tipo_especifico(3)):
-                                    print(f'{cores.vermelhoclaro()}A hora {horafimtar} já passou, digite uma hora superior ou atual.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}A hora {horafimtar} já passou, digite uma hora superior ou atual.{cores.retirarcor()}')
                                 else:
                                     break
                             #Define e verifica o minuto da data limite
@@ -281,16 +278,16 @@ while True:
                                     try:
                                         minfimtar = int(input(f'{cores.magentaclaro()}Minuto: {cores.retirarcor()}'))
                                     except:
-                                        print(f'{cores.vermelhoclaro()}O minuto digitado, é ínvalido.{cores.retirarcor()}')
+                                        print(f'{cores.vermelho()}O minuto digitado, é ínvalido.{cores.retirarcor()}')
                                         continue
                                     else:
                                         break
                                 if minfimtar < 0 or minfimtar > 59:
-                                    print(f'{cores.vermelhoclaro()}O minuto digitado não existe.{cores.retirarcor()}')
-                                    print(f'{cores.vermelhoclaro()} Para o minuto {minfimtar} digite um minuto de 0 a 59.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}O minuto digitado não existe.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}Digite um minuto valido de 0 a 59.{cores.retirarcor()}')
                                     continue
                                 elif minfimtar < int(DataHora.RetornaData().retorna_tipo_especifico(5)) and horafimtar == int(DataHora.RetornaData().retorna_tipo_especifico(4)):
-                                    print(f'{cores.vermelhoclaro()}O minuto {minfimtar} já passou, digite um minuto superior ou atual.{cores.retirarcor}')
+                                    print(f'{cores.vermelho()}O minuto {minfimtar} já passou, digite um minuto superior ou atual.{cores.retirarcor}')
                                 else:
                                     break
                             #Verifica o segundo da data limite
@@ -299,20 +296,20 @@ while True:
                                     try:
                                         segunfimtar = int(input(f'{cores.magentaclaro()}Segundo: {cores.retirarcor()}'))
                                     except:
-                                        print(f'{cores.vermelhoclaro()}O segundo digitado, é ínvalido.{cores.retirarcor()}')
+                                        print(f'{cores.vermelho()}O segundo digitado, é ínvalido.{cores.retirarcor()}')
                                         continue
                                     else:
                                         break
                                 if segunfimtar < 0 or segunfimtar > 59:
-                                    print(f'{cores.vermelhoclaro()}O segundo digitado não existe.{cores.retirarcor()}')
-                                    print(f'{cores.vermelhoclaro()} Para o segundo {segunfimtar} digite um segundo de 0 a 59.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}O segundo digitado não existe.{cores.retirarcor()}')
+                                    print(f'{cores.vermelho()}Digite um segundo valido de 0 a 59.{cores.retirarcor()}')
                                     continue
                                 elif segunfimtar < int(DataHora.RetornaData().retorna_tipo_especifico(6)) and minfimtar == int(DataHora.RetornaData().retorna_tipo_especifico(5)):
-                                    print(f'{cores.vermelhoclaro()}O minuto {minfimtar} já passou, digite um minuto superior ou atual.{cores.retirarcor}')
+                                    print(f'{cores.vermelho()}O minuto {minfimtar} já passou, digite um minuto superior ou atual.{cores.retirarcor}')
                                 else:
                                     break
                             #Adiciona a tarefa
-                            arqtarefas.write(f'{contfor} - {tarefa} -> Ínicio: {DataHora.RetornaData().retorna_data_hora_jun()} -> Término: {anofimtar}-{mesfimtar}-{diafimtar} {horafimtar}:{minfimtar}:{segunfimtar}\n')
+                            arqtarefas.write(f'{contfor} - {tarefa} | Ínicio: {DataHora.RetornaData().retorna_data_hora_jun()} -> Término: {anofimtar}-{mesfimtar}-{diafimtar} {horafimtar}:{minfimtar}:{segunfimtar}\n')
                             arqtarefas.close()
                             with open(f'Tarefas/{r1[1]}/Datas/{r2[1]}/{r2b[1]}', 'a+') as arqdata:
                                 arqdata.write(f'{anofimtar}-{mesfimtar}-{diafimtar} {horafimtar}:{minfimtar}:{segunfimtar}\n')

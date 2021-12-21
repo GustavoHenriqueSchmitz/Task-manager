@@ -1,2 +1,2 @@
-# GDT 1.0.1
+# GDT
  Gerenciador de Tarefas

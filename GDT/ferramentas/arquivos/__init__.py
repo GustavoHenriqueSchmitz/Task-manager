@@ -1,3 +1,32 @@
+class Arquivo:
+
+    def __init__(self, arquivo=str):
+        self.nlarquivo = arquivo
+        try:
+            open(self.nlarquivo)
+        except FileNotFoundError:
+            open(f'{self.nlarquivo}', 'w+')
+        else:
+            pass
+
+
+    def ler(self):
+        return open(f'{self.nlarquivo}', 'r')
+
+    def escrever(self):
+        return open(f'{self.nlarquivo}', 'a')
+
+    def ler_escrever(self):
+        return open(f'{self.nlarquivo}', 'a+')
+
+    def ler_escrever_inicio(self):
+        return open(f'{self.nlarquivo}', 'r+')
+
+    def truncar(self):
+        return open(f'{self.nlarquivo}', 'w')
+
+
+
 def arquivoexiste(nome):
     """
 
@@ -21,10 +50,9 @@ def criararquivo(nome):
     """
     try:
         a = open(nome, 'wt+')
+        a.close()
     except:
         print('\033[31mOuve um erro na criação do arquivo!\033[m')
-    else:
-        print('Arquivo criado com sucesso!')
 
 
 def lerarquivo(nome):
@@ -86,3 +114,7 @@ def adicionarlinha(nomearq='', valoradd=''):
     """
     with open(f'{nomearq}', 'r+', encoding='utf-8') as arq:
         arq.write(f'{valoradd}\n')
+
+n = Arquivo('arqteste' ,'/home', 'doc', 'pdf')
+print(n.tipo)
+print(n.extensao)

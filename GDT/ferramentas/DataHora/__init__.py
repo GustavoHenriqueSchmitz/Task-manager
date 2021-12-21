@@ -1,8 +1,6 @@
 import datetime
 import calendar
 
-#Terminar de
-#Remontar a classe
 class RetornaData:
 
     def __init__(self, ano=datetime.date.today().strftime('%Y'), mes=datetime.date.today().strftime('%m'), dia=datetime.date.today().strftime('%d'), hora=datetime.datetime.now().strftime('%H'), min=datetime.datetime.now().strftime('%M'), seg=datetime.datetime.now().strftime('%S')):
@@ -15,7 +13,6 @@ class RetornaData:
         :param min: Digite o minuto desejado ou nada para obter o minuto atual
         :param seg: Digite o segundo desejado ou nada para obter o segundo atual
         """
-
 
         self.ano = ano
         self.mes = mes

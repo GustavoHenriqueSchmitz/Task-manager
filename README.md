@@ -1,2 +1,2 @@
-# GDT
- Gerenciador de Tarefas
+# Task Manager
+ Um Gerenciador de Tarefas feito com python.

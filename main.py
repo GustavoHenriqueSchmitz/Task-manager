@@ -8,4 +8,14 @@ while True:
         colorTwo=Color.blue(),
         title="GERENCIADOR DE TAREFAS",
     )
-    break
+    
+    if taskType == 1:
+        continue
+    
+    elif taskType == 2:
+        continue
+    
+    elif taskType == 3:
+        break
+    
+    

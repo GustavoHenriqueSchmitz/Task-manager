@@ -103,18 +103,3 @@ def apagarlinha(nomearq='', numl=0):
                     break
         except:
             print('\033[31m --> Um erro ocorreu <--')
-
-
-def adicionarlinha(nomearq='', valoradd=''):
-    """
-
-    :param nomearq: Nome do arquivo
-    :param valoradd: Valor a ser adicionado
-    :return: Sem Retorno
-    """
-    with open(f'{nomearq}', 'r+', encoding='utf-8') as arq:
-        arq.write(f'{valoradd}\n')
-
-n = Arquivo('arqteste' ,'/home', 'doc', 'pdf')
-print(n.tipo)
-print(n.extensao)
